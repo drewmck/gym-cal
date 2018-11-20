@@ -6,9 +6,17 @@ class Calendar extends Component {
 
   onChange = date => this.props.onChange(date)
   content = ({ date, view }) => {
-    console.log (date, view);
-    if (view === 'month' && date.getDay() === 0)
-       return <p>Its Sunday!</p>
+    if (date.getDate() === this.props.date.getDate())
+      {
+          if (this.props.wentToGym)
+              return <p>Went to gym</p>
+
+          else
+              return <p>Did not go to gym</p>
+
+
+      }
+
      else
         return null;
   }
